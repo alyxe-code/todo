@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="horizontal"
+    android:background="@color/colorAppBackground">
+
+    <fragment
+        android:id="@+id/todo_list_fragment"
+        android:name="com.p2lem8dev.todo.TodoListFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@id/todo_input_layout" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/todo_input_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/todo_create_background"
+        android:padding="@dimen/main_content_padding"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/todo_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/app_name" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+</RelativeLayout>

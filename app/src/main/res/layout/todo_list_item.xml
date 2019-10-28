@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="isSelected"
+            type="Boolean" />
+        <variable
+            name="completed"
+            type="Boolean" />
+        <variable
+            name="todoItem"
+            type="com.p2lem8dev.todo.TodoItem" />
+        <variable
+            name="presenter"
+            type="com.p2lem8dev.todo.TodoListAdapter.TodoViewHolder" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/todo_item_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@{ completed ? @drawable/todo_item_card_completed : @drawable/todo_item_card }"
+        tools:background="@drawable/todo_item_card"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:longClickable="true">
+
+        <ImageButton
+            android:id="@+id/delete"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/ic_clear"
+            android:layout_margin="7dp"
+            android:onClick="@{ (view) -> presenter.handleClick(view) }"
+            />
+
+        <CheckBox
+            android:id="@+id/todo_complete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/delete"
+            android:layout_alignParentTop="true"
+            android:checked="@{ completed }" />
+
+        <TextView
+            android:id="@+id/todo_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@id/todo_complete"
+            android:text="@{ todoItem.text }"
+            tools:text="Sample ToDo Item" />
+
+    </RelativeLayout>
+
+</layout>
